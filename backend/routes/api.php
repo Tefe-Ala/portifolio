@@ -48,7 +48,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('auth/logout', [AuthController::class, 'logout']);
     Route::get('auth/me', [AuthController::class, 'me']);
 });
-
+Route::get('/health', function () {
+    return response()->json([
+        'status' => 'ok',
+        'message' => 'Tefera Portfolio API is running',
+    ]);
+});
 /*
 |--------------------------------------------------------------------------
 | Admin dashboard (protected + permission-gated)
