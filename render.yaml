@@ -9,7 +9,7 @@ services:
 
     autoDeploy: true
 
-    healthCheckPath: /api/v1/profile
+    healthCheckPath: /api/health
 
     envVars:
       - key: APP_ENV
