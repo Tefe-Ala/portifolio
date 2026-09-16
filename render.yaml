@@ -1,35 +1,46 @@
-# TEFERA Portfolio — Render blueprint (free tier defaults)
-# Import this repo "New + > Blueprint" and Render builds the web service
-# from the Dockerfile + these envs. Adjust values after import if you wish.
 services:
   - type: web
     name: tefera-portfolio-api
     runtime: docker
     plan: free
+
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
+
     autoDeploy: true
+
     healthCheckPath: /api/v1/profile
+
     envVars:
       - key: APP_ENV
         value: production
+
       - key: APP_DEBUG
         value: "false"
+
       - key: APP_KEY
         generateValue: true
+
       - key: APP_URL
         sync: false
+
       - key: FRONTEND_URL
         value: https://tefe-alas-portal.vercel.app
+
       - key: DB_CONNECTION
         value: sqlite
+
       - key: SESSION_DRIVER
         value: database
+
       - key: QUEUE_CONNECTION
         value: database
+
       - key: CACHE_STORE
         value: database
+
       - key: MEDIA_DISK
         value: public
+
       - key: FILESYSTEM_DISK
         value: public
